@@ -14,8 +14,7 @@ class AccountController extends Controller
     }
     public function retrieveAccountsData(Request $request)
     {
-        $data = Account::all();
-        return Inertia::render('Accounts', ['data' => $data]);
+        return response()->json(['data' => Account::orderBy('created_at','DESC')->get()]);
     }
 
 }

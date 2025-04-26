@@ -1,7 +1,25 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import DataTable from 'datatables.net-react';
+import DT from 'datatables.net-dt';
+import 'datatables.net-select-dt';
+import 'datatables.net-responsive-dt';
+
+DataTable.use(DT);
 
 export default function Dashboard() {
+    const columns = [
+        {
+            data:'id',
+            title:'Sr.No.'
+        },{
+            data:'title',
+            title:'Title'
+        },{
+            data:'date',
+            title:'Date'
+        }
+    ]
     return (
         <AuthenticatedLayout
             header={
@@ -16,7 +34,11 @@ export default function Dashboard() {
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
-                            You're logged in!
+                            Account Manager
+                        </div>
+                        <div className="p-6 text-gray-900">
+                            <DataTable className='display' columns={columns}
+                                 ajax='/retrieveAccountsData' options={{responsive:true,select:true}} />
                         </div>
                     </div>
                 </div>

@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
 
 Route::controller(AccountController::class)->middleware(['auth','verified'])->group(function () {
     Route::get('/accounts', 'index')->name('accounts');
-    Route::post('/retrieveAccountsData','retrieveAccountsData')->name('retrieveAccountsData');
+    Route::get('/retrieveAccountsData','retrieveAccountsData')->name('retrieveAccountsData');
 });
 
 
