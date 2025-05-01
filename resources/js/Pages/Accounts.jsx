@@ -4,9 +4,26 @@ import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
 import 'datatables.net-select-dt';
 import 'datatables.net-responsive-dt';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
+const MySwal = withReactContent(Swal)
 DataTable.use(DT);
 
+MySwal.fire({
+    title: 'Deletion',
+    text: 'Are you sure you want to delete particular data?',
+    icon: 'warning',
+    showCancelButton:true,
+    confirmButtonText: "Delete",
+    denyButtonText: `Cancel`
+}).then((result)=>{
+    if (result.isConfirmed) {
+        MySwal.fire("Deleted Successfully", "", "success");
+    } else if (result.dismiss) {
+        MySwal.fire("Deletion Cancelled", "", "error");
+    }
+});
 export default function Dashboard() {
     const columns = [
         {
@@ -47,6 +64,7 @@ export default function Dashboard() {
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     Accounts
+
                 </h2>
             }
         >
