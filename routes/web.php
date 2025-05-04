@@ -24,6 +24,7 @@ Route::get('/dashboard', function () {
 Route::controller(AccountController::class)->middleware(['auth','verified'])->group(function () {
     Route::get('/accounts', 'index')->name('accounts');
     Route::get('/retrieveAccountsData','retrieveAccountsData')->name('retrieveAccountsData');
+    Route::delete('/deleteAccount','deleteAccount')->name('deleteAccount');
 });
 
 

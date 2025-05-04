@@ -12,7 +12,7 @@
         "@tailwindcss/vite": "^4.0.0",
         "@vitejs/plugin-react": "^4.2.0",
         "autoprefixer": "^10.4.12",
-        "axios": "^1.8.2",
+        "axios": "^1.9.0",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^1.2.0",
         "postcss": "^8.4.31",
@@ -26,6 +26,7 @@
         "datatables.net-react": "^1.0.1",
         "datatables.net-responsive-dt": "^3.0.4",
         "datatables.net-select-dt": "^3.0.0",
+        "jquery": "^3.7.1",
         "sweetalert2": "^11.19.1",
         "sweetalert2-react-content": "^5.1.0"
     }

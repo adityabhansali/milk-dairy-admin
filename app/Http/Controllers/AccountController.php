@@ -16,5 +16,16 @@ class AccountController extends Controller
     {
         return response()->json(['data' => Account::orderBy('created_at','DESC')->get()]);
     }
+    public function deleteAccount(Request $request)
+    {
+        $account = Account::find($request->id);
+        if($account->delete())
+        {
+            return response()->json(['data'=>'Account deleted'],200);
+        }
+        else{
+            return response()->json(['data'=>'Account Failed']);
+        }
+    }
 
 }
